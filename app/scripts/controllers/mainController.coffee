@@ -1,11 +1,8 @@
 class MainCtrl
 
-    @$inject: ['$scope', '$window']
-    constructor: (@scope, $window) ->
-        @scope.questions = [
-            { id: "1", type: "choice", question: "Is Python a dynamically typed language?",choices: [ { id: 0, value: "No", label: "No"}, { id: 1, value: "Yes", label: "Yes"}], answer: "Yes"}
-            { id: "2", type: "essay", question: "What is the difference between statically and dynamically typed languages?", answer: "Blah,..Blah"}
-        ]
+    @$inject: ['$scope', 'FormBuilderService']
+    constructor: (@scope, @formBuilderService) ->
+        @scope.questions = @formBuilderService.questionsWithAnswers(1,1)
 
 
 angular.module('formbuilderApp').controller 'MainCtrl', MainCtrl
