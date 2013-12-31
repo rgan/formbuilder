@@ -1,8 +1,9 @@
 class MainCtrl
 
-    @$inject: ['$scope', 'FormBuilderService']
-    constructor: (@scope, @formBuilderService) ->
-        @scope.questions = @formBuilderService.questionsWithAnswers(1,1)
-
+    @$inject: ['$scope', '$routeParams', 'FormBuilderService']
+    constructor: (@scope, $routeParams, @formBuilderService) ->
+        @formId = $routeParams["formId"]
+        @userId = $routeParams["userId"]
+        @scope.questions = @formBuilderService.questionsWithAnswers(@formId,@userId)
 
 angular.module('formbuilderApp').controller 'MainCtrl', MainCtrl

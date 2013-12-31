@@ -5,7 +5,7 @@ module = angular.module 'formbuilderApp', [
   'ngRoute'
 ]
 module.config ($routeProvider) ->
-    $routeProvider.when("/",
+    $routeProvider.when('/form/:formId/user/:userId',
         templateUrl: "views/main.html"
         controller: "MainCtrl"
     ).otherwise redirectTo: "/"
