@@ -1,0 +1,24 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li><a ng-href="#">About</a></li>
+    <li><a ng-href="#">Contact</a></li>
+  </ul>
+  <h3 class="text-muted">formbuilder</h3>
+</div>
+
+<div ng-repeat="question in questions">
+    <div class="row col-xs-12" ng-switch on="question.type">
+        <h4>{{ $index + 1 }}. {{ question.question }}</h4>
+        <div ng-switch-when="choice">
+            <choice-question question="question"></choice-question>
+        </div>
+        <div ng-switch-when="essay">
+            <essay-question question="question"></essay-question>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+
+</div>

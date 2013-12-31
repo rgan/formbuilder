@@ -1,0 +1,8 @@
+<div>
+    <div class="choices">
+        <div ng-repeat="choice in question.choices">
+            <input type="radio" name="answer" id="choice.id" value="choice.value" ng-model="question.answer"/>
+            <span class="small">{{ choice.label }}</span>
+        </div>
+    </div>
+</div>
