@@ -1,11 +1,11 @@
-module = angular.module 'formbuilderApp', [
+app_module = angular.module 'formbuilderApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute'
 ]
-module.config ($routeProvider) ->
-    $routeProvider.when('/form/:formId/user/:userId',
+app_module.config ($routeProvider) ->
+    $routeProvider.when('/forms/:formId/users/:userId',
         templateUrl: "views/main.html"
-        controller: "MainCtrl"
+        controller: "MainCtrl as mainCtrl"
     ).otherwise redirectTo: "/"

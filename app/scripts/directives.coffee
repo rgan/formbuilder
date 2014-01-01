@@ -1,6 +1,4 @@
-module = angular.module('formbuilderApp')
-
-module.directive 'choiceQuestion', ->
+angular.module('formbuilderApp').directive 'choiceQuestion', ->
     restrict: 'E',
     require: 'ngModel',
     scope: {
@@ -8,7 +6,7 @@ module.directive 'choiceQuestion', ->
     },
     templateUrl: 'views/choice_question.html'
 
-module.directive 'essayQuestion', ->
+angular.module('formbuilderApp').directive 'essayQuestion', ->
     restrict: 'E',
     require: 'ngModel'
     scope: {

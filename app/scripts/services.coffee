@@ -2,15 +2,13 @@ class FormbuilderService
 
     @$inject: ['$resource', '$log']
     constructor: (@resource, @log) ->
-        @formResource = @resource 'api/forms/:id'
-        @formAnswerResource = @resource 'api/forms/:id/user/:id'
+        @formAnswerResource = @resource '/forms/:formId/users/:userId'
 
     questionsWithAnswers: (formId, userId) ->
-        #@formAnswerResource(formId, userId)
-        [
-            { id: "1", type: "choice", question: "Is Python a dynamically typed language?",choices: [ { value: "No", label: "No"}, { value: "Yes", label: "Yes"}], answer: "Yes"}
-            { id: "2", type: "essay", question: "What is the difference between statically and dynamically typed languages?", answer: "Blah,..Blah aha"}
-        ]
+        @formAnswerResource.get({formId: formId, userId: userId})
+
+    save: (formId, userId, form, successCallback, failureCallback) ->
+        form.$save({formId: formId, userId: userId}, successCallback, failureCallback)
 
 angular.module('formbuilderApp').service 'FormBuilderService', FormbuilderService
 

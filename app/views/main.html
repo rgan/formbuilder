@@ -7,7 +7,8 @@
   <h3 class="text-muted">formbuilder</h3>
 </div>
 
-<div ng-repeat="question in questions">
+<h3>{{ form_data.name }}</h3>
+<div ng-repeat="question in form_data.questions">
     <div class="row col-xs-12" ng-switch on="question.type">
         <h4>{{ $index + 1 }}. {{ question.question }}</h4>
         <div ng-switch-when="choice">
@@ -18,6 +19,9 @@
         </div>
     </div>
 
+</div>
+<div class="row col-xs-12">
+<button class="btn btn-success" ng-click="mainCtrl.save()">Submit</button>
 </div>
 <div class="footer">
 
