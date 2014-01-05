@@ -4,4 +4,8 @@ class FormbuilderServiceMock
 
     save: (formId, userId, form, successCallback, failureCallback) ->
 
+    questions: () ->
+
+    formById: (id) ->
+
 angular.module('serviceMocks', []).service 'FormBuilderService', FormbuilderServiceMock

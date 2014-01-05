@@ -1,0 +1,36 @@
+<div class="header">
+    <h3>Create/Edit Form</h3>
+</div>
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" ng-model="formEditingCtrl.form.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSelectQuestion" class="col-sm-2 control-label">Choose question to add to form</label>
+            <div class="col-sm-10">
+                <select id="inputSelectQuestion" size=10 ng-model="questionToAdd" ng-options="question.question for question in formEditingCtrl.questions">
+                    <option value="">-- choose questions to add --</option>
+                </select>
+            </div>
+            <div class="col-sm-10"><button class="btn btn-default" ng-click="formEditingCtrl.addToForm(questionToAdd)">Add to form</button></div>
+        </div>
+        <div class="form-group">
+            <label for="formQuestions" class="col-sm-2 control-label">Questions in form</label>
+            <div class="col-sm-10">
+                <select id="formQuestions" size=10 multiple ng-model="questionToRemove" ng-options="question.question for question in formEditingCtrl.form.questions">
+                    <option value="">-- choose questions --</option>
+                </select>
+            </div>
+            <div class="col-sm-10"><button class="btn btn-default" ng-click="formEditingCtrl.removeFromForm(questionToRemove)">Remove from form</button></div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success" ng-click="formEditingCtrl.save()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
